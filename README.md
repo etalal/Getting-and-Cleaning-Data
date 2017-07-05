@@ -27,5 +27,13 @@ match.string <- c("mean","std")
 df.selected.col <- df.merged[,c(1:2,grep(paste(match.string,collapse = "|"),colnames(df.merged)))]
 ```
 3. Uses descriptive activity names to name the activities in the data set
+```
+##descriptive naming of the activities in the data set
+df.with.activityLabel <- within(df.selected.col,activity_id <- factor(activity_id,labels=c("WALKING","WALKING_UPSTAIRS","WALKING_DOWNSTAIRS","SITTING","STANDING","LAYING")))
+```
 4. Appropriately labels the data set with descriptive variable names.
 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+```
+##creating a tidy data set with the average of each variable for each activity and each subject
+tidy.data <- df.with.activityLabel %>% group_by_(.dots=c("subject_id","activity_id")) %>% summarise_all(funs(mean))
+```
