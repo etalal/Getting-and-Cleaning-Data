@@ -29,9 +29,9 @@ These signals were used to estimate variables of the feature vector for each pat
 
 # Features in Tidy Data set
 
-* Subject_id
+1. subject_id
     * Subject who performed different activity. it ranges from 1 to 30
-* activity_id
+2. activity_id
    1. Walking
    2. WALKING_UPSTAIRS
    3. WALKING_DOWNSTAIRS
