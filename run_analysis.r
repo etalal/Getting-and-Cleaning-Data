@@ -58,3 +58,7 @@ tidy.data <- df.with.activityLabel %>% group_by_(.dots=c("subject_id","activity_
 
 ##writing the tidy data frame in to a text file
 write.table(tidy.data,file.path("./data","tidy_dataset.txt"),row.names = FALSE,quote=FALSE)
+
+## read and view the tidy data set
+data <- read.table("./data/tidy_dataset.txt", header=TRUE)
+View(data)
