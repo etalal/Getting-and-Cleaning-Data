@@ -32,12 +32,12 @@ These signals were used to estimate variables of the feature vector for each pat
 1. subject_id
     * Subject who performed different activity. it ranges from 1 to 30
 2. activity_id
-    1.Walking
-    2.WALKING_UPSTAIRS
-    3.WALKING_DOWNSTAIRS
-    4.SITTING
-    5.STANDING
-    6.LAYING
+     1.Walking
+     2.WALKING_UPSTAIRS
+     3.WALKING_DOWNSTAIRS
+     4.SITTING
+     5.STANDING
+     6.LAYING
 3. tBodyAcc-mean()-XYZ
    * mean of body accelaration signal in time domain for each subject, each activity in X, Y and Z direction
    * feature is normalized and value is within [-1,1]
