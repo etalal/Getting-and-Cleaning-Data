@@ -47,4 +47,16 @@ These signals were used to estimate variables of the feature vector for each pat
 5. tGravityAcc-mean()-XYZ
    * mean of gravitational accelaration signal in time domain for each subject, each activity in X, Y and Z direction
    * feature is normalized and value is within [-1,1]
-6. 
+6. tGravityAcc-std()-XYZ
+   * std dev of gravitational accelaration signal in time domain for each subject, each activity in X, Y and Z direction
+   * feature is normalized and value is within [-1,1]
+7. tBodyAccJerk-mean()-XYZ
+   * mean of body jerk signal in time domain for each subject and each activty in X, Y and Z direction. values ae normalized to between 1 and -1
+8. tBodyAccJerk-std()-XYZ
+   * std dev of body jerk signal for each subject and each activity
+9. tBodyGyro-mean()-XYZ
+   * mean of angular velocity in time domain for each subject, each activity in X,Y and Z direction.
+   * values are normalized within [-1,1]
+10. tBodyGyro-std()-XYZ
+   * mean of angular velocity in time domain for each subject, each activity in X,Y and Z direction.
+   * values are normalized within [-1,1]
