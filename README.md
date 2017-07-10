@@ -43,3 +43,8 @@ df.with.activityLabel <- within(df.selected.col,activity_id <- factor(activity_i
 ##creating a tidy data set with the average of each variable for each activity and each subject
 tidy.data <- df.with.activityLabel %>% group_by_(.dots=c("subject_id","activity_id")) %>% summarise_all(funs(mean))
 ```
+7. read and view the tidy data set
+```
+data <- read.table("./data/tidy_dataset.txt", header=TRUE)
+View(data)
+```
