@@ -18,20 +18,27 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 
 # R-Script
 R Script (run_analysis.r) does the following -
-1. Merges the training and the test sets to create one data set.
-2. Extracts only the measurements on the mean and standard deviation for each measurement.
+1. create a folder called data if it already does not exist, download the zipped data and unzip it
+```
+if (!file.exists("./data")){dir.create("./data")}
+furl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
+download.file(furl,destfile = "./data/dataset.zip", mode="wb")
+unzip("./data/dataset.zip",exdir = "./data/textfiles")
+```
+2. Merges the training and the test sets to create one data set.
+3. Extracts only the measurements on the mean and standard deviation for each measurement.
 ```
 ##selecting only the measurements on the mean and std dev for each measurement
 match.string <- c("mean","std")
 df.selected.col <- df.merged[,c(1:2,grep(paste(match.string,collapse = "|"),colnames(df.merged)))]
 ```
-3. Uses descriptive activity names to name the activities in the data set
+4. Uses descriptive activity names to name the activities in the data set
 ```
 ##descriptive naming of the activities in the data set
 df.with.activityLabel <- within(df.selected.col,activity_id <- factor(activity_id,labels=c("WALKING","WALKING_UPSTAIRS","WALKING_DOWNSTAIRS","SITTING","STANDING","LAYING")))
 ```
-4. Appropriately labels the data set with descriptive variable names.
-5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+5. Appropriately labels the data set with descriptive variable names.
+6. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 ```
 ##creating a tidy data set with the average of each variable for each activity and each subject
 tidy.data <- df.with.activityLabel %>% group_by_(.dots=c("subject_id","activity_id")) %>% summarise_all(funs(mean))
